@@ -26,3 +26,4 @@
 !/infrastructure/vkcs_provider.tf
 !/infrastructure/.terraform.lock.hcl
 !/infrastructure/.terraform/
+!/infrastructure/.terraform/terraform.tfstate
