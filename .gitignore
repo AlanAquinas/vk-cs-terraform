@@ -1,0 +1,26 @@
+# Ignore IntelliJ IDEA files
+.idea/
+*.iml
+
+# Variables that can contain secret info
+*.tfvars
+*.tfvars.json
+
+# State files
+*terraform.tfstate
+*terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Terraform provider cache
+.terraform/
+
+# Lock files
+*.terraform.lock.hcl
+
+# Sensitive auto-generated files
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Provider
+infrastructure/vkcs_provider.tf
