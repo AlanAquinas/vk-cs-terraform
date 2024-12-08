@@ -23,4 +23,6 @@
 *.auto.tfvars.json
 
 # Provider
-infrastructure/vkcs_provider.tf
+!/infrastructure/vkcs_provider.tf
+!/infrastructure/.terraform.lock.hcl
+!/infrastructure/.terraform/
