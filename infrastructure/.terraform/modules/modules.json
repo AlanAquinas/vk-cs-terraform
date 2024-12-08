@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"k8s","Source":"./modules/k8s","Dir":"modules/k8s"},{"Key":"kubernetes","Source":"./modules/k8s","Dir":"modules/k8s"},{"Key":"network","Source":"./modules/network","Dir":"modules/network"},{"Key":"security","Source":"./modules/security","Dir":"modules/security"}]}
