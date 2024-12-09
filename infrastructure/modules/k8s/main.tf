@@ -9,7 +9,15 @@ terraform {
 }
 
 data "vkcs_kubernetes_clustertemplate" "k8s-template" {
-  version = "1.25"
+  version = "1.28"
+}
+
+data "vkcs_compute_flavor" "k8s_flavor_dev" {
+  name = "Standard-2-6"  # Укажите имя нужного flavor'а
+}
+
+data "vkcs_compute_flavor" "k8s_flavor_prod" {
+  name = "Standard-4-8"  # Укажите имя нужного flavor'а
 }
 
 resource "vkcs_compute_keypair" "k8s-keypair" {
@@ -20,11 +28,10 @@ resource "vkcs_kubernetes_cluster" "k8s_cluster" {
   name                = "${var.environment}-k8s-cluster"
   cluster_template_id = data.vkcs_kubernetes_clustertemplate.k8s-template.id
   master_count        = var.environment == "prod" ? 3 : 1 # Для prod используем 3 master-ноды
-  master_flavor      = var.environment == "prod" ? "Standard-4-8" : "Basic-1-2-20"
+  master_flavor      = var.environment == "prod" ? data.vkcs_compute_flavor.k8s_flavor_prod.id : data.vkcs_compute_flavor.k8s_flavor_dev.id
   network_id         = var.network_id
   subnet_id          = var.public_subnet_id
-  availability_zone  = "KZ"
-  keypair            = vkcs_compute_keypair.k8s-keypair.name
+  availability_zone  = "QAZ"
 
   labels = {
     environment = var.environment
